@@ -3,7 +3,13 @@ package ru.nsu.lebedev;
 import java.util.Random;
 
 
+/**
+ * Class with analyzing system for difficulty of algorithm
+ */
 public class Main {
+    /**
+     * Function with testing analyzing system for difficulty of algorithm
+     */
     public static void main(String[] args) {
         HeapSort hs = new HeapSort();
         Random random = new Random();

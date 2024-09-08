@@ -39,8 +39,8 @@ public class HeapSort {
                 swapI = lChildIndex + 1;
             }
             if (swapI != index) {
-                index = swapI;
                 swap(swapI, index);
+                index = swapI;
                 lChildIndex = index * 2 + 1;
                 rChildIndex = index * 2 + 2;
             } else {
