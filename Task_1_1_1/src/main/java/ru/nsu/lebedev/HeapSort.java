@@ -26,23 +26,23 @@ public class HeapSort {
      */
     private void siftDown(int i) {
         int index = i;
-        int lChildIndex = i * 2 + 1;
-        int rChildIndex = i * 2 + 2;
+        int left = i * 2 + 1;
+        int right = i * 2 + 2;
         int swapI;
-        while (lChildIndex < this.heapSize) {
+        while (left < this.heapSize) {
             swapI = index;
-            if (this.arr[lChildIndex] > this.arr[index]) {
-                swapI = lChildIndex;
+            if (this.arr[left] > this.arr[index]) {
+                swapI = left;
             }
-            if (rChildIndex < this.heapSize
-                    && this.arr[rChildIndex] > this.arr[swapI]) {
-                swapI = lChildIndex + 1;
+            if (right < this.heapSize
+                    && this.arr[right] > this.arr[swapI]) {
+                swapI = left + 1;
             }
             if (swapI != index) {
                 swap(swapI, index);
                 index = swapI;
-                lChildIndex = index * 2 + 1;
-                rChildIndex = index * 2 + 2;
+                left = index * 2 + 1;
+                right = index * 2 + 2;
             } else {
                 break;
             }
@@ -54,6 +54,7 @@ public class HeapSort {
      * Converts an array to a maximum heap.
      * Builds a sorted array by extracting items from the heap one at a time.
      * Restores the properties of the heap after each extraction.
+     *
      * @param arr Unsorted ints' array.
      * @return Sorted arr.
      */

@@ -13,7 +13,7 @@ REM Creating a manifest for a JAR file
 echo Main-Class: ru.nsu.lebedev.Main > manifest.txt
 
 REM Creating a JAR file specifying the manifest
-jar cvfm app.jar manifest.txt -C out .
+jar from app.jar manifest.txt -C out .
 
 REM Deleting a temporary manifest
 del manifest.txt

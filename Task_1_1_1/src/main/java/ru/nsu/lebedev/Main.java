@@ -21,8 +21,8 @@ public class Main {
             hs.heapsort(arr);
             long endTime = System.nanoTime();
             long duration = endTime - startTime;
-            double nLogN = size * (Math.log(size) / Math.log(2));
-            System.out.printf("%10d | %12d | %.2f\n", size, duration, nLogN);
+            double mathalgo = size * (Math.log(size) / Math.log(2));
+            System.out.printf("%10d | %12d | %.2f\n", size, duration, mathalgo);
         }
     }
 }
