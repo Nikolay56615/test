@@ -9,14 +9,8 @@ javac -d out --release 8 src\main\java\ru\nsu\lebedev\*.java
 REM JavaDoc Generation
 javadoc -d doc src\main\java\ru\nsu\lebedev\*.java
 
-REM Creating a manifest for a JAR file
-echo Main-Class: ru.nsu.lebedev.Main > manifest.txt
-
-REM Creating a JAR file specifying the manifest
-jar from app.jar manifest.txt -C out .
-
-REM Deleting a temporary manifest
-del manifest.txt
+REM Creating a JAR file
+jar from app.jar ru.nsu.lebedev.Main -C out .
 
 REM Launching the program
 java -cp app.jar ru.nsu.lebedev.Main

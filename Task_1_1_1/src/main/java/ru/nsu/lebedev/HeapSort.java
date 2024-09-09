@@ -6,16 +6,13 @@ package ru.nsu.lebedev;
  * and then extracts the elements one at a time, creating a sorted array.
  */
 public class HeapSort {
-    private int heapSize;
-    private int[] arr;
-
     /**
      * Swaps two elements of the array.
      */
-    private void swap(int a, int b) {
-        int tmp = this.arr[a];
-        this.arr[a] = this.arr[b];
-        this.arr[b] = tmp;
+    private static void swap(int[] arr, int a, int b) {
+        int tmp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = tmp;
     }
 
     /**
@@ -24,22 +21,22 @@ public class HeapSort {
      *
      * @param i index of the element to be "sifted"
      */
-    private void siftDown(int i) {
+    private static void siftDown(int[] arr, int heapSize, int i) {
         int index = i;
         int left = i * 2 + 1;
         int right = i * 2 + 2;
         int swapI;
-        while (left < this.heapSize) {
+        while (left < heapSize) {
             swapI = index;
-            if (this.arr[left] > this.arr[index]) {
+            if (arr[left] > arr[index]) {
                 swapI = left;
             }
-            if (right < this.heapSize
-                    && this.arr[right] > this.arr[swapI]) {
+            if (right < heapSize
+                    && arr[right] > arr[swapI]) {
                 swapI = left + 1;
             }
             if (swapI != index) {
-                swap(swapI, index);
+                swap(arr, swapI, index);
                 index = swapI;
                 left = index * 2 + 1;
                 right = index * 2 + 2;
@@ -58,24 +55,17 @@ public class HeapSort {
      * @param arr Unsorted ints' array.
      * @return Sorted arr.
      */
-    public int[] heapsort(int[] arr) {
-        this.arr = arr.clone();
-        this.heapSize = this.arr.length;
-        for (int i = this.arr.length / 2 - 1; i >= 0; --i) {
-            this.siftDown(i);
+    public static int[] heapsort(int[] arr) {
+        arr = arr.clone();
+        int heapSize = arr.length;
+        for (int i = arr.length / 2 - 1; i >= 0; --i) {
+            siftDown(arr, heapSize, i);
         }
-        for (int i = 0; i < this.arr.length - 1; ++i) {
-            swap(0, this.heapSize - 1);
-            this.heapSize--;
-            siftDown(0);
+        for (int i = 0; i < arr.length - 1; ++i) {
+            swap(arr, 0, heapSize - 1);
+            heapSize--;
+            siftDown(arr, heapSize, 0);
         }
-        return this.arr;
-    }
-
-    /**
-     * @return Sorted arr.
-     */
-    public int[] retArr() {
-        return this.arr;
+        return arr;
     }
 }
