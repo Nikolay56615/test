@@ -25,21 +25,33 @@ public class Main {
             int result = playRound(round);
             if (result == 1) {
                 playerWins++;
-                System.out.println("Вы выиграли раунд! Счёт: " + playerWins + ":" + dealerWins + " в вашу пользу.");
+                System.out.println("Вы выиграли раунд! Счёт: " + playerWins
+                        +
+                        ":" + dealerWins + " в вашу пользу.");
             } else if (result == -1) {
                 dealerWins++;
-                System.out.println("Дилер выиграл раунд! Счёт: " + playerWins + ":" + dealerWins + " в пользу дилера.");
+                System.out.println("Дилер выиграл раунд! Счёт: " + playerWins + ":"
+                        +
+                        dealerWins + " в пользу дилера.");
             } else {
-                System.out.println("Раунд закончился вничью! Счёт: " + playerWins + ":" + dealerWins + ".");
+                System.out.println("Раунд закончился вничью! Счёт: " + playerWins
+                        +
+                        ":" + dealerWins + ".");
             }
             System.out.println("\n--------------------------\n");
         }
         if (playerWins > dealerWins) {
-            System.out.println("Поздравляем! Вы выиграли игру со счётом " + playerWins + ":" + dealerWins + "!");
+            System.out.println("Поздравляем! Вы выиграли игру со счётом "
+                    +
+                    playerWins + ":" + dealerWins + "!");
         } else if (dealerWins > playerWins) {
-            System.out.println("Увы, дилер выиграл игру со счётом " + dealerWins + ":" + playerWins + ".");
+            System.out.println("Увы, дилер выиграл игру со счётом "
+                    +
+                    dealerWins + ":" + playerWins + ".");
         } else {
-            System.out.println("Игра закончилась вничью! Счёт " + playerWins + ":" + dealerWins + ".");
+            System.out.println("Игра закончилась вничью! Счёт "
+                    +
+                    playerWins + ":" + dealerWins + ".");
         }
         System.out.println("Игра окончена. Спасибо за участие!");
     }
@@ -58,8 +70,12 @@ public class Main {
         dealerHand.add(deck.drawCard());
         System.out.println("\nРаунд " + round);
         System.out.println("Дилер раздал карты");
-        System.out.println("Ваши карты: " + playerHand + " > " + calculateHandValue(playerHand));
-        System.out.println("Карты дилера: [" + dealerHand.get(0) + ", <закрытая карта>]");
+        System.out.println("Ваши карты: " + playerHand + " > "
+                +
+                calculateHandValue(playerHand));
+        System.out.println("Карты дилера: [" + dealerHand.get(0)
+                +
+                ", <закрытая карта>]");
         if (calculateHandValue(playerHand) == 21) {
             System.out.println("Блэкджек!");
             return 1;
@@ -70,7 +86,9 @@ public class Main {
             String input = scanner.nextLine();
             if (input.equalsIgnoreCase("да")) {
                 playerHand.add(deck.drawCard());
-                System.out.println("Ваши карты: " + playerHand + " > " + calculateHandValue(playerHand));
+                System.out.println("Ваши карты: " + playerHand
+                        +
+                        " > " + calculateHandValue(playerHand));
                 if (calculateHandValue(playerHand) > 21) {
                     System.out.println("Вы проиграли раунд! Перебор.");
                     return -1;
@@ -79,7 +97,9 @@ public class Main {
                 break;
             }
         }
-        System.out.println("Карты дилера: " + dealerHand + " > " + calculateHandValue(dealerHand));
+        System.out.println("Карты дилера: " + dealerHand + " > "
+                +
+                calculateHandValue(dealerHand));
         if (calculateHandValue(dealerHand) == 21) {
             System.out.println("Блэкджек!");
             return -1;
@@ -87,7 +107,9 @@ public class Main {
         while (calculateHandValue(dealerHand) < 17) {
             dealerHand.add(deck.drawCard());
             System.out.println("Дилер берёт карту...");
-            System.out.println("Карты дилера: " + dealerHand + " > " + calculateHandValue(dealerHand));
+            System.out.println("Карты дилера: " + dealerHand
+                    +
+                    " > " + calculateHandValue(dealerHand));
         }
         int playerTotal = calculateHandValue(playerHand);
         int dealerTotal = calculateHandValue(dealerHand);
