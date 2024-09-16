@@ -1,7 +1,7 @@
 package ru.nsu.lebedev;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -106,8 +106,10 @@ class MainTest {
         String output = outputStream.toString();
         String expectedOutput = "Добро пожаловать в Блэкджек!\r\n"
                 +
-                "Выберите, сколько раундов игры вы хотите?\r\n" +
-                "Игра закончилась вничью! Счёт 0:0.\r\n" +
+                "Выберите, сколько раундов игры вы хотите?\r\n"
+                +
+                "Игра закончилась вничью! Счёт 0:0.\r\n"
+                +
                 "Игра окончена. Спасибо за участие!\r\n";
         assertEquals(expectedOutput, output);
         System.setIn(originalIn);
