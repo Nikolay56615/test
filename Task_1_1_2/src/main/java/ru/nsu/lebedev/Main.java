@@ -26,68 +26,26 @@ public class Main {
             if (result == 1) {
                 playerWins++;
                 System.out.println("Вы выиграли раунд! Счёт: "
-                    +
-                    playerWins
-                    +
-                    ":"
-                    +
-                    dealerWins
-                    +
-                    " в вашу пользу.");
+                    + playerWins + ":" + dealerWins + " в вашу пользу.");
             } else if (result == -1) {
                 dealerWins++;
                 System.out.println("Дилер выиграл раунд! Счёт: "
-                    +
-                    playerWins
-                    +
-                    ":"
-                    +
-                    dealerWins
-                    +
-                    " в пользу дилера.");
+                    + playerWins + ":" + dealerWins + " в пользу дилера.");
             } else {
                 System.out.println("Раунд закончился вничью! Счёт: "
-                    +
-                    playerWins
-                    +
-                    ":"
-                    +
-                    dealerWins
-                    +
-                    ".");
+                    + playerWins + ":" + dealerWins + ".");
             }
             System.out.println("\n--------------------------\n");
         }
         if (playerWins > dealerWins) {
             System.out.println("Поздравляем! Вы выиграли игру со счётом "
-                +
-                playerWins
-                +
-                ":"
-                +
-                dealerWins
-                +
-                "!");
+                + playerWins + ":" + dealerWins + "!");
         } else if (dealerWins > playerWins) {
             System.out.println("Увы, дилер выиграл игру со счётом "
-                +
-                dealerWins
-                +
-                ":"
-                +
-                playerWins
-                +
-                ".");
+                + dealerWins + ":" + playerWins + ".");
         } else {
             System.out.println("Игра закончилась вничью! Счёт "
-                +
-                playerWins
-                +
-                ":"
-                +
-                dealerWins
-                +
-                ".");
+                + playerWins + ":" + dealerWins + ".");
         }
         System.out.println("Игра окончена. Спасибо за участие!");
     }
@@ -119,12 +77,7 @@ public class Main {
             if (input.equalsIgnoreCase("да")) {
                 playerHand.add(deck.drawCard());
                 System.out.println("Ваши карты: "
-                    +
-                    playerHand
-                    +
-                    " > "
-                    +
-                    calculateHandValue(playerHand));
+                    + playerHand + " > " + calculateHandValue(playerHand));
                 if (calculateHandValue(playerHand) > 21) {
                     System.out.println("Вы проиграли раунд! Перебор.");
                     return -1;
@@ -145,10 +98,7 @@ public class Main {
             dealerHand.add(deck.drawCard());
             System.out.println("Дилер берёт карту...");
             System.out.println("Карты дилера: " + dealerHand
-                +
-                " > "
-                +
-                calculateHandValue(dealerHand));
+                + " > " + calculateHandValue(dealerHand));
         }
         int playerTotal = calculateHandValue(playerHand);
         int dealerTotal = calculateHandValue(dealerHand);
