@@ -129,7 +129,10 @@ public class Main {
                     System.out.println("Вы проиграли раунд! Перебор.");
                     return -1;
                 }
-            } else {
+            } else if (!input.equals("нет")){
+                System.out.println("Неверная комманда, попробуйте еще раз!");
+            }
+            else {
                 break;
             }
         }
