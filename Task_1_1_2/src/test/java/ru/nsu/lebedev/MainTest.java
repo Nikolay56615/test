@@ -1,10 +1,10 @@
 package ru.nsu.lebedev;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintStream;
 import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,9 +12,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static java.lang.reflect.Modifier.STATIC;
 
 
 class MainTest {
@@ -103,14 +104,15 @@ class MainTest {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
         Main.main();
-        System.setIn(originalIn);
-        System.setOut(originalOut);
         String output = outputStream.toString();
-        String expectedOutput = "Добро пожаловать в Блэкджек!\r\n" +
+        String expectedOutput = "Добро пожаловать в Блэкджек!\r\n"
+                +
                 "Выберите, сколько раундов игры вы хотите?\r\n" +
                 "Игра закончилась вничью! Счёт 0:0.\r\n" +
                 "Игра окончена. Спасибо за участие!\r\n";
         assertEquals(expectedOutput, output);
+        System.setIn(originalIn);
+        System.setOut(originalOut);
     }
 
     @Test
