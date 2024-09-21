@@ -45,6 +45,15 @@ public class Deck {
     }
 
     /**
+     * The function responsible for adding a card to the top of the deck.
+     */
+    public void addCardToTop(Card card) {
+        if (card != null) {
+            cards.add(0, card);
+        }
+    }
+
+    /**
      * The function responsible for returning size of deck.
      */
     public int getRemainingCardsCount() {
