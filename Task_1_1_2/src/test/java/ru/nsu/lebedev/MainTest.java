@@ -1,8 +1,6 @@
 package ru.nsu.lebedev;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.ByteArrayInputStream;
@@ -64,7 +62,7 @@ class MainTest {
     }
 
     @Test
-    void testMain1(){
+    void testMain1() {
         String simulatedInput = "0\n";
         final InputStream originalIn = System.in;
         final PrintStream originalOut = System.out;
@@ -138,7 +136,7 @@ class MainTest {
     }
 
     @Test
-    void testMain2(){
+    void testMain2() {
         String simulatedInput = "0\n";
         final InputStream originalIn = System.in;
         final PrintStream originalOut = System.out;
@@ -203,52 +201,5 @@ class MainTest {
         dealerHand.add(new Card("Трефы", "Тройка", 3)); // Дилер получает 21
         result = Main.dealersTurn(deck, dealerHand);
         assertEquals(Main.GameResult.DEALER_WINS, result);
-    }
-}
-
-class CardTest {
-    @Test
-    void testCardValues() {
-        Card twoOfHearts = new Card("Черви", "Двойка", 2);
-        Card aceOfSpades = new Card("Пики", "Туз", 11);
-        Card kingOfClubs = new Card("Трефы", "Король", 10);
-        assertEquals(2, twoOfHearts.getValue());
-        assertEquals(11, aceOfSpades.getValue());
-        assertEquals(10, kingOfClubs.getValue());
-    }
-
-    @Test
-    void testToString() {
-        // Проверка работы метода toString для карты
-        Card card = new Card("Черви", "Туз", 11);
-        String expected = "Туз Черви (11)";
-        assertEquals(expected, card.toString());
-    }
-}
-
-class DeckTest {
-    private Deck deck;
-
-    @BeforeEach
-    void setUp() {
-        deck = new Deck();
-    }
-
-    @Test
-    void testWhenDeckIsEnd() {
-        for (int i = 0; i < 53; i++) {
-            if (i == 52) {
-                assertNull(deck.drawCard());
-                break;
-            }
-            deck.drawCard();
-        }
-    }
-
-    @Test
-    void testDeckShuffle() {
-        deck.shuffle();
-        assertNotNull(deck.drawCard());
-        assertEquals(51, deck.getRemainingCardsCount());
     }
 }

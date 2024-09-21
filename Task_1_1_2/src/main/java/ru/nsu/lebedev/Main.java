@@ -11,6 +11,9 @@ public class Main {
     public static int winCount = 21;
     public static int maximumDealerClearance = 17;
 
+    /**
+     * Enum with standard returns.
+     */
     public enum GameResult {
         PLAYER_WINS,
         DEALER_WINS,
@@ -46,6 +49,8 @@ public class Main {
                 case DRAW:
                     System.out.println("Раунд закончился вничью! Счёт: "
                             + playerWins + ":" + dealerWins + ".");
+                    break;
+                default:
                     break;
             }
             System.out.println("\n--------------------------\n");
