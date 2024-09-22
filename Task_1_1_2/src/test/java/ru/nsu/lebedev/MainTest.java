@@ -62,30 +62,6 @@ class MainTest {
     }
 
     @Test
-    void testMain1() {
-        String simulatedInput = "0\n";
-        final InputStream originalIn = System.in;
-        final PrintStream originalOut = System.out;
-        System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outputStream));
-        String output = outputStream.toString();
-        String expectedOutput = output;
-        /*
-        String expectedOutput = "Добро пожаловать в Блэкджек!\r\n"
-                +
-                "Выберите, сколько раундов игры вы хотите?\r\n"
-                +
-                "Игра закончилась вничью! Счёт 0:0.\r\n"
-                +
-                "Игра окончена. Спасибо за участие!\r\n";
-        */
-        assertEquals(expectedOutput, output);
-        System.setIn(originalIn);
-        System.setOut(originalOut);
-    }
-
-    @Test
     void testDealerWins() {
         List<Card> playerHand = new ArrayList<>();
         List<Card> dealerHand = new ArrayList<>();
@@ -136,7 +112,7 @@ class MainTest {
     }
 
     @Test
-    void testMain2() {
+    void testMainOutput() {
         String simulatedInput = "0\n";
         final InputStream originalIn = System.in;
         final PrintStream originalOut = System.out;

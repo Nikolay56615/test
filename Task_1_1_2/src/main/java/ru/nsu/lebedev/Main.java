@@ -8,8 +8,8 @@ import java.util.Scanner;
  * Class with realisation of game process.
  */
 public class Main {
-    public static int winCount = 21;
-    public static int maximumDealerClearance = 17;
+    final static int  WIN_COUNT = 21;
+    final static int MAXIMUM_DEALER_CLEARANCE = 17;
 
     /**
      * Enum with standard returns.
@@ -97,7 +97,7 @@ public class Main {
      * The function at which the player's move occurs.
      */
     public static GameResult playersTurn(Deck deck, List<Card> playerHand) {
-        if (calculateHandValue(playerHand) == winCount) {
+        if (calculateHandValue(playerHand) == WIN_COUNT) {
             System.out.println("Блэкджек!");
             return GameResult.DEALER_WINS;
         }
@@ -110,7 +110,7 @@ public class Main {
                     playerHand.add(deck.drawCard());
                     System.out.println("Ваши карты: "
                             + playerHand + " > " + calculateHandValue(playerHand));
-                    if (calculateHandValue(playerHand) > winCount) {
+                    if (calculateHandValue(playerHand) > WIN_COUNT) {
                         System.out.println("Вы проиграли раунд! Перебор.");
                         return GameResult.DEALER_WINS;
                     }
@@ -128,11 +128,11 @@ public class Main {
      */
     public static GameResult dealersTurn(Deck deck, List<Card> dealerHand) {
         System.out.println("Карты дилера: " + dealerHand + " > " + calculateHandValue(dealerHand));
-        if (calculateHandValue(dealerHand) == winCount) {
+        if (calculateHandValue(dealerHand) == WIN_COUNT) {
             System.out.println("Блэкджек!");
             return GameResult.DEALER_WINS;
         }
-        while (calculateHandValue(dealerHand) < maximumDealerClearance) {
+        while (calculateHandValue(dealerHand) < MAXIMUM_DEALER_CLEARANCE) {
             dealerHand.add(deck.drawCard());
             System.out.println("Дилер берёт карту...");
             System.out.println("Карты дилера: " + dealerHand
@@ -148,7 +148,7 @@ public class Main {
         int playerTotal = calculateHandValue(playerHand);
         int dealerTotal = calculateHandValue(dealerHand);
 
-        if (dealerTotal > winCount || playerTotal > dealerTotal) {
+        if (dealerTotal > WIN_COUNT || playerTotal > dealerTotal) {
             System.out.println("Вы выиграли раунд!");
             return GameResult.PLAYER_WINS;
         } else if (playerTotal == dealerTotal) {
@@ -172,7 +172,7 @@ public class Main {
                 aceCount++;
             }
         }
-        while (totalValue > winCount && aceCount > 0) {
+        while (totalValue > WIN_COUNT && aceCount > 0) {
             for (Card card : hand) {
                 if (card.getValue() == 11) {
                     card.changeValue();
