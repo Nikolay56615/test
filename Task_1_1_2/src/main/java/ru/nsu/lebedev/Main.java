@@ -8,8 +8,8 @@ import java.util.Scanner;
  * Class with realisation of game process.
  */
 public class Main {
-    final static int  WIN_COUNT = 21;
-    final static int MAXIMUM_DEALER_CLEARANCE = 17;
+    static final int WIN_COUNT = 21;
+    static final int MAXIMUM_DEALER_CLEARANCE = 17;
 
     /**
      * Enum with standard returns.
