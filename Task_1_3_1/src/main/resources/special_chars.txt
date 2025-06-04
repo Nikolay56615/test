@@ -1,0 +1,1 @@
+This is a test with special characters: - Emojis: 😀😂🎉🔥💻 - Mathematical symbols: ∑ ∫ √ ∞ ≈ - Arrows: ← ↑ → ↓

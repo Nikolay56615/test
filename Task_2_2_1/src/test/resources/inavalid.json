@@ -1,0 +1,17 @@
+{
+  "bakers": [
+    {"name": "Alexey", "cookingTime": 7},
+    {"name": "Maria", "cookingTime": 6}
+  ],
+  "couriers": [
+    {"name": "Nikolay", "ckewnjmk,dn c ejnj": 1},
+    {"name": "Elena", "capacity": 3}
+  ],
+  "warehouseCapacity": 15,
+  "orders": [
+    {"id": "b2", "deliveryTime": 2},
+    {"id": "d4", "deliveryTime": 5},
+    {"id": "e6", "deliveryTime": 8},
+    {"id": "f8", "deliveryTime": 1}
+  ]
+}
